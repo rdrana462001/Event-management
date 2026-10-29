@@ -1,10 +1,12 @@
 FROM php:8.2-apache
 
-# જો તમારી એપમાં MySQL ડેટાબેઝ વાપર્યો હોય તો આ લાઈન જરૂરી છે
+# MySQL સપોર્ટ માટે
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# તમારા બધા કોડને સર્વરના ફોલ્ડરમાં કોપી કરવા માટે
+# આ લાઇન Apache સર્વરને જણાવશે કે લિસ્ટમાં Index.php પણ ચેક કરે (સુરક્ષા માટે)
+RUN echo "DirectoryIndex index.php index.html Index.php" >> /etc/apache2/apache2.conf
+
+# તમારો બધો કોડ સર્વરમાં કોપી કરવા માટે
 COPY . /var/www/html/
 
-# Apache સર્વર માટે પોર્ટ ઓપન કરવા
 EXPOSE 80
