@@ -235,6 +235,7 @@ if(isset($_POST['update'])){
             .sidebar { display: none; }
             .main-content { margin-left: 0; }
         }
+        
     </style>
 </head>
 <body>

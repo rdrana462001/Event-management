@@ -15,15 +15,18 @@ if(!isset($_GET['event_id'])) {
 $event_id = $_GET['event_id'];
 
 $sql = "SELECT * FROM events WHERE event_id='$event_id'";
+
 $result = $conn->query($sql);
 
-if($result->num_rows != 1) {
+if($result->num_rows != 1) 
+{
     header("location:index.php");
     exit();
 }
 
 $event = $result->fetch_assoc();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +37,7 @@ $event = $result->fetch_assoc();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
     
     <style>
+
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
 
         :root {
@@ -246,12 +250,15 @@ $event = $result->fetch_assoc();
     </style>
     
     <script>
-        function calculateTotal() {
+
+        function calculateTotal() 
+        {
             let price = parseFloat(document.getElementById("price").value);
             let qty = parseInt(document.getElementById("qty").value);
             let total = (price * qty).toFixed(2);
             document.getElementById("totalVal").innerHTML = total;
         }
+
     </script>
 </head>
 <body>

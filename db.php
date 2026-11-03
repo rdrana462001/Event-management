@@ -22,5 +22,7 @@ if (!$conn) {
 
 // Set character set to utf8mb4
 mysqli_set_charset($conn, "utf8mb4");
+
+
 ?>
 

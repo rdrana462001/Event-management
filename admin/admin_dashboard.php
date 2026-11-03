@@ -257,7 +257,8 @@ $result = mysqli_query($conn, $sql);
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
+
+        <?php
 
                     if ($result && mysqli_num_rows($result) > 0) {
                         $i = 1;

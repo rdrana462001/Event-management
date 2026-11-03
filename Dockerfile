@@ -6,7 +6,10 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 # Apache સર્વરને લિસ્ટમાં index.php ચેક કરવા જણાવવા માટે
 RUN echo "DirectoryIndex index.php index.html Index.php" >> /etc/apache2/apache2.conf
 
-# ડબલ-કોટ્સ વગર પાથ સેટ કરવા (ધ્યાન રાખજો સ્પેસ અને સ્લેશ બરાબર હોવા જોઈએ)
-COPY ./event\ management\ system/ /var/www/html/
+# પ્રોજેક્ટના તમામ ફાઈલોને /var/www/html/ માં કોપી કરવા માટે
+COPY . /var/www/html/
+
+# યોગ્ય ફાઈલ પરમિશન્સ આપવા માટે
+RUN chown -R www-data:www-data /var/www/html
 
 EXPOSE 80
